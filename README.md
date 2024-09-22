@@ -2,9 +2,9 @@
 Serial Communication API Frontend for Bittle Robot
 
 ### basic connection guide
-### read bittle data from the serial port
+read bittle data from the serial port
 
-```
+```javascript
 const SerialPort = require('serialport').SerialPort;
 const comPortB = new SerialPort({
 	path: '/dev/cu.usbmodem56D00039821',
@@ -21,3 +21,15 @@ comPortB.on('open', function () {
 	});
 });
 ```
+### once connected write a move to the serial port
+add k to the beginning of the bittle move
+and add a wait time in milliseconds
+
+```javascript
+setTimeout(() => {
+	comPortB.write('kup');
+}, 1000);
+```
+
+future plans:
+modify the timeout implementation to be more dynamic
