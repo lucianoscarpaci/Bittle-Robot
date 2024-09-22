@@ -17,6 +17,27 @@ class UART {
 			});
 		});
 	}
+
+	async standUp() {
+		setTimeout(() => {
+			this.comPortB.write('kup');
+		}, 4000);
+	}
+
+	async highFive() {
+		setTimeout(() => {
+			this.comPortB.write('kfiv');
+		}, 7000);
+	}
+
+	async standDown() {
+		setTimeout(() => {
+			this.comPortB.write('d');
+		}, 11000);
+	}
 }
 
 const comPortB = new UART('/dev/cu.usbmodem56D00039821', 115200, 8, 1, 'none');
+comPortB.standUp();
+comPortB.highFive();
+comPortB.standDown();
