@@ -22,8 +22,8 @@ comPortB.on('open', function () {
 });
 ```
 ### once connected write a move to the serial port
-write async functions to control the robot
-add k to the beginning of the bittle move
+write async functions to control the robot \\
+add k to the beginning of the bittle move \\
 and a wait time to the end of the move
 
 ```javascript
