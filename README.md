@@ -1,4 +1,4 @@
-# Bittle-Robot
+# Raijin-Robot
 Serial Communication API Frontend for Bittle Robot
 
 ### basic connection guide
@@ -26,10 +26,10 @@ add k to the beginning of the bittle move
 and add a wait time in milliseconds
 
 ```javascript
+async up ({
 setTimeout(() => {
 	comPortB.write('kup');
 }, 1000);
+});
 ```
 
-future plans:
-modify the timeout implementation to be more dynamic
