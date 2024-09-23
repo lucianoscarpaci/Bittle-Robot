@@ -16,6 +16,15 @@ class UART {
 				console.log('>:^.^:>\n' + data);
 			});
 		});
+
+		this.robotMoves = new RobotMoves(this.comPortB);
+	}
+
+}
+
+class RobotMoves {
+	constructor(comPortB) {
+		this.comPortB = comPortB;
 	}
 
 	async standUp() {
@@ -38,6 +47,7 @@ class UART {
 }
 
 const comPortB = new UART('/dev/cu.usbmodem56D00039821', 115200, 8, 1, 'none');
-comPortB.standUp();
-comPortB.highFive();
-comPortB.standDown();
+const raijin = comPortB.robotMoves;
+raijin.standUp();
+raijin.highFive();
+raijin.standDown();
