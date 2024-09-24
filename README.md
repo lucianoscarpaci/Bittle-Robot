@@ -1,6 +1,16 @@
 # Raijin-Robot
 Serial Communication API Frontend for Bittle Robot
 
+### prerequisites
+- Node.js
+- npm
+- serialport
+
+### install serialport
+```bash
+npm install serialport
+```
+
 ### basic connection guide
 read bittle data from the serial port
 
