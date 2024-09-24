@@ -27,27 +27,39 @@ class RobotMoves {
 		this.comPortB = comPortB;
 	}
 
-	async standUp() {
-		setTimeout(() => {
-			this.comPortB.write('kup');
-		}, 4000);
+	async standUp(delay) {
+		try {
+			setTimeout(() => {
+				this.comPortB.write('kup');
+			}, delay);
+		} catch (error) {
+			console.error('An error occurred: ', error);
+		}
 	}
 
-	async highFive() {
-		setTimeout(() => {
-			this.comPortB.write('kfiv');
-		}, 7000);
+	async highFive(delay) {
+		try {
+			setTimeout(() => {
+				this.comPortB.write('kfiv');
+			}, delay);
+		} catch (error) {
+			console.error('An error occurred: ', error);
+		}
 	}
 
-	async standDown() {
-		setTimeout(() => {
-			this.comPortB.write('d');
-		}, 11000);
+	async standDown(delay) {
+		try {
+			setTimeout(() => {
+				this.comPortB.write('d');
+			}, delay);
+		} catch (error) {
+			console.error('An error occurred: ', error);
+		}
 	}
 }
 
 const comPortB = new UART('/dev/cu.usbmodem56D00039821', 115200, 8, 1, 'none');
 const raijin = comPortB.robotMoves;
-raijin.standUp();
-raijin.highFive();
-raijin.standDown();
+raijin.standUp(4000);
+raijin.highFive(7000);
+raijin.standDown(11000);
