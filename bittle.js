@@ -17,12 +17,12 @@ class UART {
 			});
 		});
 
-		this.robotMoves = new RobotMoves(this.comPortB);
+		this.standAndGreet = new standAndGreet(this.comPortB);
 	}
 
 }
 
-class RobotMoves {
+class standAndGreet {
 	constructor(comPortB) {
 		this.comPortB = comPortB;
 	}
@@ -40,7 +40,7 @@ class RobotMoves {
 	async highFive(delay) {
 		try {
 			setTimeout(() => {
-				this.comPortB.write('kfiv');
+				this.comPortB.write('khsk');
 			}, delay);
 		} catch (error) {
 			console.error('An error occurred: ', error);
@@ -59,7 +59,7 @@ class RobotMoves {
 }
 
 const comPortB = new UART('/dev/cu.usbmodem56D00039821', 115200, 8, 1, 'none');
-const raijin = comPortB.robotMoves;
-raijin.standUp(4000);
-raijin.highFive(7000);
-raijin.standDown(11000);
+const greeting= comPortB.standAndGreet;
+greeting.standUp(4000);
+greeting.highFive(7000);
+greeting.standDown(11000);
